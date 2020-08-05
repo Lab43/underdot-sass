@@ -12,14 +12,11 @@ module.exports = (options = {}) => ({ registerFilePlugin }) => {
         ...options,
         data: buffer.toString('utf8'),
         outFile: outputPath,
-      }, (err, result) => {
+      }, async (err, result) => {
         if (err) return reject(err);
-        resolve(Promise.all([
-          next(outputPath, result.css),
-          // if there is a sourcemap output that as well
-          next(outputPath + '.map', result.map),
-        ]));
-      })
+        if (result.map) await next(path + '.map', result.map);
+        return next(path, result.css);
+      });
     });
   });
 
