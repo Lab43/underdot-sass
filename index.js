@@ -18,7 +18,7 @@ module.exports = (config = {}) => (plugin) => {
         ...options,
         data: file.toString('utf8'),
         outFile: outputPath,
-        includePaths: includePaths.concat([p.join(plugin.source, p.dirname(path))]),
+        includePaths: [p.join(plugin.source, p.dirname(path))].concat(includePaths),
       }, async (err, result) => {
         if (err) return reject(err);
         let output = {path: outputPath, file: result.css};
