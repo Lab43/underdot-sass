@@ -1,9 +1,9 @@
 {
   "name": "underdot-sass",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sass plugin for Underdot",
   "main": "index.js",
-  "author": "",
+  "author": "Cameron Spencer <cameron@lab43.com> (https://www.lab43.com)",
   "license": "ISC",
   "dependencies": {
     "sass": "^1.32.5"
